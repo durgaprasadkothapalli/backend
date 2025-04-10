@@ -10,6 +10,7 @@ pipeline {
 
     environment {
         DEBUG = 'true'
+        def appVersion = ''
     }
 
     stages {
