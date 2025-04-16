@@ -4,7 +4,7 @@ pipeline {
     }
 
     options {
-        timeout(time: 30, unit: 'MINUTES')
+        timeout(time: 10, unit: 'MINUTES')
         disableConcurrentBuilds()
     }
 
@@ -21,21 +21,23 @@ pipeline {
                     appVersion = packageJson.version
                     echo "App version: ${appVersion}"
                 }
+
             }
+            
         }
 
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
-                sh 'echo This is Build'
+                sh 'npm install'
             }
         }
 
-        stage('Test') {
+       /* stage('Test') {
             steps {
                 sh 'echo This is test'
                 sh 'env'
             }
-        }
+        } */
 
         stage('Deploy') {
             when {
