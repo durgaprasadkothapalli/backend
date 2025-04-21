@@ -18,8 +18,8 @@ pipeline {
             steps {
                 script {
                     def packageJson = readJSON file: 'package.json'
-                    //appVersion = packageJson.version
-                    echo "version: ${packageJson.Version}"
+                    appVersion = packageJson.version
+                    echo "App version: ${appVersion}"
                 }
 
             }
@@ -56,7 +56,7 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
                 echo "Password: ${params.PASSWORD}"
             }
-        }
+        } 
 
         /*
         stage('Approval') {
@@ -73,7 +73,7 @@ pipeline {
             }
         }
         */
-    }
+     }
 
     post {
         always {
@@ -87,4 +87,4 @@ pipeline {
             echo "This section runs when pipeline fails"
         }
     }
-}
+} 
