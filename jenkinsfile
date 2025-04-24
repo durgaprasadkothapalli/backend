@@ -13,7 +13,7 @@ pipeline {
         def appVersion = ''
     }
 
-   /* stages {
+    stages {
         stage('Read the version') {
             steps {
                 script {
@@ -24,24 +24,8 @@ pipeline {
 
             }
             
-        } */
-    stage('Read the version') {
-            steps {
-                script {
-                    def jsonFile = 'package.json'
-                    if (fileExists(jsonFile)) {
-                        try {
-                            def versionData = readJSON file: jsonFile
-                            echo "App Version: ${versionData.version}"
-                        } catch (Exception e) {
-                            error("❌ Failed to read JSON file: ${e.message}")
-                        }
-                    } else {
-                        error("❌ JSON file not found: ${jsonFile}")
-                    }
-                }
-            }
-        }
+        } 
+ 
 
         stage('Install Dependencies') {
             steps {
@@ -104,3 +88,4 @@ pipeline {
             echo "This section runs when pipeline fails"
         }
     }
+}
