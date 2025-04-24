@@ -10,7 +10,7 @@ pipeline {
 
     environment {
         DEBUG = 'true'
-        def appVersion = ''
+        appVersion = '' // this will become golbal, we can use across pipeline
     }
 
     stages {
@@ -19,7 +19,7 @@ pipeline {
                 script {
                     def packageJson = readJSON file: 'package.json'
                     appVersion = packageJson.version
-                    echo "App version: $appVersion"
+                    echo "App version: ${appVersion}"
                 }
 
             }
