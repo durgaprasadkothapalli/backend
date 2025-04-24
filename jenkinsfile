@@ -10,7 +10,7 @@ pipeline {
 
     environment {
         DEBUG = 'true'
-        appVersion = '' // this will become golbal, we can use across pipeline
+        def appVersion = '' // this will become golbal, we can use across pipeline
     }
 
     stages {
