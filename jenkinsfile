@@ -28,6 +28,7 @@ pipeline {
  
 
         stages('install dependencies')
+        {
             steps {              
                 sh 'npm install'
             }
