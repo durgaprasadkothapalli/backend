@@ -1,14 +1,18 @@
-pipeline{
+pipelinen{
     agent {
         label 'AGENT-1'
+    }
+    options{
+        timeout(time:30, unit: 'MINUTES')
+        disableConcurrentBuilds
     }
     environment{
         DEBUG = 'true'
         appversion = ''
     }
-    stages{
+    stages {
         stage('Read the vesion') {
-            steps{
+            steps {
                 script{
                     def packageJson = readJson file: 'packageJson'
                     appversion = packageJson.version
@@ -18,13 +22,13 @@ pipeline{
             }
         }
         stage('Test') {
-            steps{
+            steps {
                 sh 'echo This is test'
                 sh 'env'
             }
         }
         stage('Deploy') {
-            when{
+            when {
                 expression { env.GIT_BRANCH != "origin/main"}
             }
             steps {
