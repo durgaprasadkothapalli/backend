@@ -13,7 +13,7 @@ pipeline {
         appVersion = '' // this will become golbal, we can use across pipeline
     }
 
-    stages{ 
+   /* stages{ 
         stage('Read the version'){
            steps {
              script {
@@ -24,10 +24,10 @@ pipeline {
                 }
               }
         }
-    }
+    }    */
 
 
-    /*stages {
+    stages {
         stage('Read the version') {
             steps {
                 script {
