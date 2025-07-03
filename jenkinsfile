@@ -13,16 +13,18 @@ pipeline {
         appVersion = '' // this will become golbal, we can use across pipeline
     }
 
-    stage('Read the version') {
-    steps {
-        script {
-            sh 'cat package.json'  // Debug step
-            def packageJson = readJSON file: 'package.json'
-            env.appVersion = packageJson.version
-            echo "App version: ${env.appVersion}"
+    stages{ 
+        stage('Read the version'){
+           steps {
+             script {
+                  sh 'cat package.json'  // Debug step
+                   def packageJson = readJSON file: 'package.json'
+                   env.appVersion = packageJson.version
+                 echo "App version: ${env.appVersion}"
+                }
+              }
         }
     }
-}
 
 
     /*stages {
