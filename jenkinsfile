@@ -5,14 +5,14 @@ pipeline {
     options {
         timeout(time:30, unit: 'MINUTES')
         disableConcurrentBuilds()
-      //  ansicolor('xterm')
+        ansicolor('xterm')
     }
     environment {
         DEBUG = 'true'
         appVersion = ''
     }
     stages {
-     /*   stage('Read the version') {
+        stage('Read the version') {
             steps {
                 script{
                     def packageJson = readJSON file: 'package.json'
@@ -21,14 +21,14 @@ pipeline {
                 
                 }
             }
-        }  */
+        }  
         stage('Test') {
             steps {
                 sh 'echo This is test'
                 sh 'env'
             }
         }
-        stage( 'Install Dependencies') {
+        stage('Install Dependencies') {
             steps { 
                 sh 'npm install'
             }
