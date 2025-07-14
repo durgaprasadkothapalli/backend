@@ -1,4 +1,3 @@
-
 FROM node:20 AS builder
 WORKDIR /opt/server
 COPY package.json .
