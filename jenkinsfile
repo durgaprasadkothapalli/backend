@@ -7,8 +7,10 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
-    environment {
+    environme
+    nt {
         DEBUG = 'true'
+     
         appVersion = ''
     }
     stages {
@@ -52,16 +54,16 @@ pipeline {
                     //error 'pipeline failed'
 
             }
-        }
-        stage('Print Params'){
-            steps{
-                echo "Hello ${params.PERSON}"
-                echo "Biography: ${params.BIOGRAPHY}"
-                echo "Toggle: ${params.TOGGLE}"
-                echo "Choice: ${params.CHOICE}"
-                echo "Password: ${params.PASSWORD}"  
-            }
-        }
+        // }
+        // stage('Print Params'){
+        //     steps{
+        //         echo "Hello ${params.PERSON}"
+        //         echo "Biography: ${params.BIOGRAPHY}"
+        //         echo "Toggle: ${params.TOGGLE}"
+        //         echo "Choice: ${params.CHOICE}"
+        //         echo "Password: ${params.PASSWORD}"  
+        //     }
+        // }
     }
     
     post {
