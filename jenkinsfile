@@ -54,7 +54,7 @@ pipeline {
                     //error 'pipeline failed'
 
             }
-        // }
+        }
         // stage('Print Params'){
         //     steps{
         //         echo "Hello ${params.PERSON}"
