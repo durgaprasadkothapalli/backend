@@ -9,7 +9,6 @@ pipeline {
     }
     environment {
         DEBUG = 'true'
-     
         appVersion = ''
     }
     stages {
@@ -19,6 +18,7 @@ pipeline {
                         def packageJson = readJSON file: 'package.json'
                         appVersion = packageJson.version
                         echo "Version is: $appVersion"
+                         "version": "1.0.5",
                     }
                 }
             } 
